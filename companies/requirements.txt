@@ -4,4 +4,4 @@ mccabe==0.3
 pep8==1.5.7
 pyflakes==0.8.1
 pymongo==2.7.2
--e git+https://github.com/openregister/entry@c02f86d1698e32c795332e74c5b2ccbec5f3558e#egg=thingstance-origin/master
+-e git+https://github.com/openregister/entry@c02f86d1698e32c795332e74c5b2ccbec5f3558e#egg=thingstance

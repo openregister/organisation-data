@@ -5,7 +5,7 @@
 #  Companies House "free" data, see:
 #  http://download.companieshouse.gov.uk/en_output.html
 #
-DATE=2015-02-01
+DATE=2015-08-01
 URL_PREFIX=http://download.companieshouse.gov.uk/BasicCompanyData-$(DATE)-part
 URL_SUFFIX=_5.zip
 
@@ -19,14 +19,14 @@ COMPANIES_DATA=\
 #
 #  Register information from the register.register
 #
-REGISTER_URL=https://raw.githubusercontent.com/openregister/register.register/master/data/Register
+REGISTER_URL=https://raw.githubusercontent.com/openregister/registers/master/data/Register
 REGISTERS=\
-	cache/Company.yaml\
-	cache/Address.yaml
+	cache/company.yaml\
+	cache/address.yaml
 
-COUNTRY_URL=https://raw.githubusercontent.com/openregister/country.register/master/data/Country/countries.yaml
+COUNTRY_URL=https://raw.githubusercontent.com/openregister/locations/master/country/data/Country/countries.tsv
 COUNTRIES=\
-	cache/countries.yaml
+	cache/countries.tsv
 
 .PHONY: all flake8 prune out
 
@@ -69,13 +69,13 @@ cache/part5.zip:;	mkdir -p cache && curl -s "$(URL_PREFIX)5$(URL_SUFFIX)" > $@
 #
 #  registers
 #
-cache/Company.yaml:;	mkdir -p cache && curl -L -s "$(REGISTER_URL)/Company.yaml" > $@
-cache/Address.yaml:;	mkdir -p cache && curl -L -s "$(REGISTER_URL)/Address.yaml" > $@
+cache/company.yaml:;	mkdir -p cache && curl -L -s "$(REGISTER_URL)/company.yaml" > $@
+cache/address.yaml:;	mkdir -p cache && curl -L -s "$(REGISTER_URL)/address.yaml" > $@
 
 #
 #  country codes
 #
-cache/countries.yaml:;	mkdir -p cache && curl -L -s "$(COUNTRY_URL)" > $@
+cache/countries.tsv:;	mkdir -p cache && curl -L -s "$(COUNTRY_URL)" > $@
 
 #
 #  clean
